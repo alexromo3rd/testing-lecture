@@ -1,9 +1,12 @@
 module.exports = {
   balance: 1000,
   depositMoney(amount) {
-    this.balance += amount
+    this.balance += amount;
   },
   withdrawMoney(amount) {
-    this.balance -= amount
+    if (amount > this.balance) {
+      throw new Error();
+    }
+    this.balance -= amount;
   },
-}
+};
